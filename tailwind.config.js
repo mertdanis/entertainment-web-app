@@ -15,6 +15,21 @@ export default {
     fontFamily: {
       mainFont: ["Outfit", "sans-serif"],
     },
+
+    fontSize: {
+      headingL: "32px",
+      headingM: "24px",
+
+      headingXS: "18px",
+
+      bodyM: "15px",
+      bodyS: "13px",
+    },
+
+    fontWeight: {
+      light: "300",
+      medium: "500",
+    },
   },
   plugins: [],
 };
