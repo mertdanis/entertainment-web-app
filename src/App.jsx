@@ -1,15 +1,7 @@
-import Input from "./components/Input";
-import Sidebar from "./components/Sidebar";
-import Trending from "./components/Trending";
+import React from "react";
 
 function App() {
-  return (
-    <div className="">
-      <Sidebar />
-      <Input />
-      <Trending />
-    </div>
-  );
+  return <div>App</div>;
 }
 
 export default App;

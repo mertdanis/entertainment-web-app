@@ -1,5 +1,22 @@
+import { Outlet } from "react-router-dom";
+import Input from "../components/Input";
+import Sidebar from "../components/Sidebar";
+import Title from "../components/Title";
+
+import Home from "../features/Home/Home";
+
 function Layout() {
-  return <></>;
+  return (
+    <div className="">
+      <div className="flex">
+        <Sidebar />
+        <Input />
+      </div>
+      <div className="flex">
+        <Outlet />
+      </div>
+    </div>
+  );
 }
 
 export default Layout;
