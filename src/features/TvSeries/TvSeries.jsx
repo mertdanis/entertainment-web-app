@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useData } from "../../store/MainContext";
 import Title from "../../components/Title";
+import Input from "../../components/Input";
 
 function TvSeries() {
   const { data } = useData();
+
+  const [filterSeries, setFilterSeries] = useState("");
 
   const tvSeries = data.filter((val) => {
     if (val.category === "TV Series") {
@@ -14,10 +17,21 @@ function TvSeries() {
 
   return (
     <div>
+      <Input
+        onChange={(e) => {
+          setFilterSeries(e.target.value);
+        }}
+      />
       <Title>Tv Series</Title>
-      {tvSeries.map((content) => {
-        return <TvSeriesContent key={content.title} content={content} />;
-      })}
+      {tvSeries
+        .filter((item) => {
+          return filterSeries.toLocaleLowerCase() === ""
+            ? item
+            : item.title.toLocaleLowerCase().includes(filterSeries);
+        })
+        .map((content) => {
+          return <TvSeriesContent key={content.title} content={content} />;
+        })}
     </div>
   );
 }

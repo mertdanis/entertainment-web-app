@@ -10,7 +10,6 @@ function Layout() {
     <div className="">
       <div className="flex">
         <Sidebar />
-        <Input />
       </div>
       <div className="flex">
         <Outlet />

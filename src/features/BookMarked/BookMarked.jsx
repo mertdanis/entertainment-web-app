@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useData } from "../../store/MainContext";
 import Title from "../../components/Title";
+import Input from "../../components/Input";
 
 function BookMarked() {
   const { data } = useData();
+
+  const [filterBookMarked, setFilterBookMarked] = useState("");
 
   const BookMarkedData = data.filter((item) => {
     if (item.isBookmarked) {
@@ -12,9 +15,23 @@ function BookMarked() {
     }
   });
 
-  return BookMarkedData.map((content) => {
-    return <BookMarkedContent key={content.title} content={content} />;
-  });
+  return (
+    <div>
+      <Input
+        onChange={(e) => {
+          setFilterBookMarked(e.target.value);
+        }}
+      />
+      <Title>BookMarked</Title>
+      {BookMarkedData.filter((item) => {
+        return filterBookMarked.toLocaleLowerCase() === ""
+          ? item
+          : item.title.toLocaleLowerCase().includes(filterBookMarked);
+      }).map((movie) => {
+        return <BookMarkedContent key={movie.title} content={movie} />;
+      })}
+    </div>
+  );
 }
 
 function BookMarkedContent({ content }) {

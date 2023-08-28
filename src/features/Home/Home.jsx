@@ -3,11 +3,14 @@ import React from "react";
 import { useData } from "../../store/MainContext";
 import Title from "../../components/Title";
 
+import Trending from "../../components/Trending";
+
 function Home() {
   const { data } = useData();
 
   return (
     <div>
+      <Trending />
       <Title>Recommended for you</Title>
       {data.map((content) => {
         return <Content key={content.title} data={content} />;

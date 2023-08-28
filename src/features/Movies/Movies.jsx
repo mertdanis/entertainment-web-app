@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useData } from "../../store/MainContext";
 import Title from "../../components/Title";
+import Input from "../../components/Input";
 
 function Movies() {
+  const [filterMovie, setFilterMovie] = useState("");
+
   const { data } = useData();
 
   const moviesData = data.filter((movie) => {
@@ -14,10 +17,21 @@ function Movies() {
 
   return (
     <div>
+      <Input
+        onChange={(e) => {
+          setFilterMovie(e.target.value);
+        }}
+      />
       <Title>Movies</Title>
-      {moviesData.map((movie) => {
-        return <MovieContent key={movie.title} movie={movie} />;
-      })}
+      {moviesData
+        .filter((item) => {
+          return filterMovie.toLocaleLowerCase() === ""
+            ? item
+            : item.title.toLocaleLowerCase().includes(filterMovie);
+        })
+        .map((movie) => {
+          return <MovieContent key={movie.title} movie={movie} />;
+        })}
     </div>
   );
 }
