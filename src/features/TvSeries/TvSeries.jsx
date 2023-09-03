@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useData } from "../../store/MainContext";
 import Title from "../../components/Title";
 import Input from "../../components/Input";
+import Content from "../../components/Content";
 
 function TvSeries() {
   const { data } = useData();
@@ -16,7 +17,7 @@ function TvSeries() {
   });
 
   return (
-    <div>
+    <>
       <Input
         onChange={(e) => {
           setFilterSeries(e.target.value);
@@ -29,28 +30,10 @@ function TvSeries() {
             ? item
             : item.title.toLocaleLowerCase().includes(filterSeries);
         })
-        .map((content) => {
-          return <TvSeriesContent key={content.title} content={content} />;
+        .map((content, index) => {
+          return <Content data={content} index={index} key={content.id} />;
         })}
-    </div>
-  );
-}
-
-function TvSeriesContent({ content }) {
-  const { title, year, category, rating, thumbnail } = content;
-
-  return (
-    <div className=" ">
-      <img src={thumbnail?.regular.small} alt={title} />
-      <div className="flex flex-col  justify-center">
-        <div className="flex gap-6">
-          <p>{year}</p>
-          <p>{category}</p>
-          <p>{rating}</p>
-        </div>
-        <p>{title}</p>
-      </div>
-    </div>
+    </>
   );
 }
 

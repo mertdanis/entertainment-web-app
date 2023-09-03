@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useData } from "../../store/MainContext";
 import Title from "../../components/Title";
 import Input from "../../components/Input";
+import Content from "../../components/Content";
 
 function BookMarked() {
   const { data } = useData();
@@ -16,7 +17,7 @@ function BookMarked() {
   });
 
   return (
-    <div>
+    <>
       <Input
         onChange={(e) => {
           setFilterBookMarked(e.target.value);
@@ -27,28 +28,10 @@ function BookMarked() {
         return filterBookMarked.toLocaleLowerCase() === ""
           ? item
           : item.title.toLocaleLowerCase().includes(filterBookMarked);
-      }).map((movie) => {
-        return <BookMarkedContent key={movie.title} content={movie} />;
+      }).map((movie, index) => {
+        return <Content key={movie.title} index={index} data={movie} />;
       })}
-    </div>
-  );
-}
-
-function BookMarkedContent({ content }) {
-  const { title, year, category, rating, thumbnail } = content;
-
-  return (
-    <div className=" ">
-      <img src={thumbnail?.regular.small} alt={title} />
-      <div className="flex flex-col  justify-center">
-        <div className="flex gap-6">
-          <p>{year}</p>
-          <p>{category}</p>
-          <p>{rating}</p>
-        </div>
-        <p>{title}</p>
-      </div>
-    </div>
+    </>
   );
 }
 

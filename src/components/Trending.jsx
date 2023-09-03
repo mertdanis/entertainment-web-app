@@ -22,7 +22,7 @@ const TrendingContent = ({ content }) => {
   const { title, year, category, rating, thumbnail } = content;
 
   return (
-    <div className=" ">
+    <div className="bg-red-500">
       <img src={thumbnail?.regular.small} alt={title} />
       <div className="flex flex-col  justify-center">
         <div className="flex gap-6">

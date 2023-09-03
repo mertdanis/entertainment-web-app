@@ -36,6 +36,19 @@ function MainContext({ children }) {
           error: true,
         };
 
+      case "toggleBookMark":
+        const bookmarkedContent = action.payload;
+
+        state.data.map((a) => {
+          if (a == bookmarkedContent) {
+            return a;
+          }
+        });
+
+        return {
+          ...state,
+        };
+
       default:
         return state;
     }

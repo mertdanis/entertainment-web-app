@@ -7,11 +7,10 @@ import Home from "../features/Home/Home";
 
 function Layout() {
   return (
-    <div className="">
-      <div className="flex">
-        <Sidebar />
-      </div>
-      <div className="flex">
+    <div className="flex grow gap-6 px-6">
+      <Sidebar />
+
+      <div className="grid grid-cols-4 gap-5	">
         <Outlet />
       </div>
     </div>
