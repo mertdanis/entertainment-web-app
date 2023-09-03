@@ -4,6 +4,7 @@ import { useData } from "../../store/MainContext";
 import Title from "../../components/Title";
 import Input from "../../components/Input";
 import Content from "../../components/Content";
+import Trending from "../../components/Trending";
 
 function TvSeries() {
   const { data } = useData();
@@ -23,6 +24,7 @@ function TvSeries() {
           setFilterSeries(e.target.value);
         }}
       />
+      <Trending />
       <Title>Tv Series</Title>
       {tvSeries
         .filter((item) => {

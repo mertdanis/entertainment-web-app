@@ -8,10 +8,10 @@ function Content({ data, index }) {
 
   return (
     <div className="">
-      <div className="relative cursor-pointer">
+      <div className="relative cursor-pointer w-fit">
         <img
-          className="  rounded-[8px] transition  duration-500 cursor-pointer hover:opacity-70 "
-          src={thumbnail?.regular.small}
+          className="h-[174px] w-[280px]  rounded-[8px] transition  duration-500 cursor-pointer hover:opacity-70 "
+          src={thumbnail?.regular.large}
           alt={title}
         />
         <div
@@ -23,7 +23,7 @@ function Content({ data, index }) {
             });
           }}
         >
-          <div className="relative cursor-pointer opacity-50  w-[32px] h-[32px] rounded-[32px]  bg-mainGreyishBlue"></div>
+          <div className=" relative cursor-pointer opacity-50  w-[32px] h-[32px] rounded-[32px]  bg-mainGreyishBlue"></div>
           <img
             className="absolute top-2.5 left-2.5"
             src={`${

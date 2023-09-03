@@ -38,10 +38,9 @@ function MainContext({ children }) {
 
       case "toggleBookMark":
         const bookmarkedContent = action.payload;
-
         state.data.map((a) => {
-          if (a == bookmarkedContent) {
-            return a;
+          if (a === bookmarkedContent) {
+            bookmarkedContent.isBookmarked = !bookmarkedContent.isBookmarked;
           }
         });
 

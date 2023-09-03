@@ -10,7 +10,7 @@ function Layout() {
     <div className="flex grow gap-6 px-6">
       <Sidebar />
 
-      <div className="grid grid-cols-4 gap-5	">
+      <div className="grid grid-cols-5 gap-y-[32px] gap-x-6	">
         <Outlet />
       </div>
     </div>

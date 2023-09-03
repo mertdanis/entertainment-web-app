@@ -1,6 +1,7 @@
 import Title from "./Title";
 
 import { useData } from "../store/MainContext";
+import Content from "./Content";
 
 function Trending() {
   const { data } = useData();
@@ -21,8 +22,10 @@ function Trending() {
 const TrendingContent = ({ content }) => {
   const { title, year, category, rating, thumbnail } = content;
 
+  console.log(title);
+
   return (
-    <div className="bg-red-500">
+    <div className="bg-slate-500">
       <img src={thumbnail?.regular.small} alt={title} />
       <div className="flex flex-col  justify-center">
         <div className="flex gap-6">
