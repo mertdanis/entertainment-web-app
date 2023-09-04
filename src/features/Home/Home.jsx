@@ -6,6 +6,7 @@ import Title from "../../components/Title";
 import Trending from "../../components/Trending";
 import Content from "../../components/Content";
 import Input from "../../components/Input";
+import PlayButton from "../../components/PlayButton";
 
 function Home() {
   const { data } = useData();

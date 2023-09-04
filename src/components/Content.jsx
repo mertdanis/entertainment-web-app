@@ -36,11 +36,23 @@ function Content({ data, index }) {
         </div>
       </div>
       <div className="flex flex-col  justify-center ">
-        <div className="  flex gap-6 text-bodyS font-light opacity-75 leading-6 text-mainWhite">
-          <p>{year}</p>
-          <p>{category}</p>
-          <p>{rating}</p>
-        </div>
+        <ul className=" mt-1 list-disc list-inside	items-center 	flex gap-2 text-bodyS font-light opacity-75 leading-6 text-mainWhite">
+          <li className="list-none">{year}</li>
+
+          <li className="flex items-center gap-2">
+            <img
+              className=" w-[12px] h-[12px]"
+              src={`${
+                category === "Movie"
+                  ? "/public/assets/imgs/icon-category-movie.svg"
+                  : "/public/assets/imgs/icon-category-tv.svg"
+              }`}
+              alt={`${category} logo`}
+            />
+            <span>{category}</span>
+          </li>
+          <li>{rating}</li>
+        </ul>
         <p className="text-mainWhite text-headingXS font-medium">{title}</p>
       </div>
     </div>
