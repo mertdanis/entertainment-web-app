@@ -24,13 +24,16 @@ function BookMarked() {
         }}
       />
       <Title>BookMarked</Title>
-      {BookMarkedData.filter((item) => {
-        return filterBookMarked.toLocaleLowerCase() === ""
-          ? item
-          : item.title.toLocaleLowerCase().includes(filterBookMarked);
-      }).map((movie, index) => {
-        return <Content key={movie.title} index={index} data={movie} />;
-      })}
+
+      <div className="grid grid-cols-6 gap-y-[32px] gap-x-6">
+        {BookMarkedData.filter((item) => {
+          return filterBookMarked.toLocaleLowerCase() === ""
+            ? item
+            : item.title.toLocaleLowerCase().includes(filterBookMarked);
+        }).map((movie, index) => {
+          return <Content key={movie.title} index={index} data={movie} />;
+        })}
+      </div>
     </>
   );
 }

@@ -24,16 +24,18 @@ function Movies() {
         }}
       />
 
-      {/* <Title>Movies</Title> */}
-      {moviesData
-        .filter((item) => {
-          return filterMovie.toLocaleLowerCase() === ""
-            ? item
-            : item.title.toLocaleLowerCase().includes(filterMovie);
-        })
-        .map((movie, index) => {
-          return <Content key={movie.title} index={index} data={movie} />;
-        })}
+      <Title>Movies</Title>
+      <div className="grid grid-cols-6 gap-y-[32px] gap-x-6">
+        {moviesData
+          .filter((item) => {
+            return filterMovie.toLocaleLowerCase() === ""
+              ? item
+              : item.title.toLocaleLowerCase().includes(filterMovie);
+          })
+          .map((movie, index) => {
+            return <Content key={movie.title} index={index} data={movie} />;
+          })}
+      </div>
     </>
   );
 }

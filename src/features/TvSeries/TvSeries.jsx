@@ -24,17 +24,19 @@ function TvSeries() {
           setFilterSeries(e.target.value);
         }}
       />
-      <Trending />
+
       <Title>Tv Series</Title>
-      {tvSeries
-        .filter((item) => {
-          return filterSeries.toLocaleLowerCase() === ""
-            ? item
-            : item.title.toLocaleLowerCase().includes(filterSeries);
-        })
-        .map((content, index) => {
-          return <Content data={content} index={index} key={content.id} />;
-        })}
+      <div className="grid grid-cols-6 gap-y-[32px] gap-x-6">
+        {tvSeries
+          .filter((item) => {
+            return filterSeries.toLocaleLowerCase() === ""
+              ? item
+              : item.title.toLocaleLowerCase().includes(filterSeries);
+          })
+          .map((content, index) => {
+            return <Content data={content} index={index} key={content.id} />;
+          })}
+      </div>
     </>
   );
 }

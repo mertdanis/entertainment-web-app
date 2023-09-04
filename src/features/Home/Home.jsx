@@ -5,17 +5,22 @@ import Title from "../../components/Title";
 
 import Trending from "../../components/Trending";
 import Content from "../../components/Content";
+import Input from "../../components/Input";
 
 function Home() {
   const { data } = useData();
 
   return (
     <>
-      <Title>Recommended for you</Title>
+      <Input />
       <Trending />
-      {data.map((content, index) => {
-        return <Content index={index} key={content.title} data={content} />;
-      })}
+
+      <Title>Recommended for you</Title>
+      <div className="grid grid-cols-6 gap-y-[32px] gap-x-6">
+        {data.map((content, index) => {
+          return <Content index={index} key={content.title} data={content} />;
+        })}
+      </div>
     </>
   );
 }

@@ -1,7 +1,6 @@
-import Title from "./Title";
-
 import { useData } from "../store/MainContext";
 import Content from "./Content";
+import Title from "./Title";
 
 function Trending() {
   const { data } = useData();
@@ -12,31 +11,34 @@ function Trending() {
     }
   });
 
-  {
-    TrendingData.map((content) => {
-      return <TrendingContent key={content.title} content={content} />;
-    });
-  }
+  return (
+    <>
+      <Title>Trending</Title>
+      <div className="grid grid-cols-3 gap-3 ">
+        {TrendingData.map((content) => {
+          return <TrendingDIV data={content} key={content.title} />;
+        })}
+      </div>
+    </>
+  );
 }
 
-const TrendingContent = ({ content }) => {
-  const { title, year, category, rating, thumbnail } = content;
-
-  console.log(title);
+function TrendingDIV({ data }) {
+  const { title, year, category, rating, thumbnail } = data;
 
   return (
-    <div className="bg-slate-500">
-      <img src={thumbnail?.regular.small} alt={title} />
+    <div>
+      <img className="" src={thumbnail?.trending.large} alt={title} />
       <div className="flex flex-col  justify-center">
-        <div className="flex gap-6">
+        <div className="flex gap-6 text-bodyM font-light opacity-75 text-mainWhite">
           <p>{year}</p>
           <p>{category}</p>
           <p>{rating}</p>
         </div>
-        <p>{title}</p>
+        <p className="font-medium text-headingM text-mainWhite">{title}</p>
       </div>
     </div>
   );
-};
+}
 
 export default Trending;
