@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import "./index.css";
+import "./global.css";
 import Layout from "./ui/Layout.jsx";
 
 // routes
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <App />,
       },
 
       {
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <div className="bg-mainGreyishBlue p-6  ">
+  <div className="bg-mainGreyishBlue p-6 min-h-screen min-w-screen ">
     <MainContext>
       <RouterProvider router={router} />
     </MainContext>
