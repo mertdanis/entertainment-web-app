@@ -4,6 +4,7 @@ import { useData } from "../../store/MainContext";
 import Title from "../../components/Title";
 import Input from "../../components/Input";
 import Content from "../../components/Content";
+import PlayButton from "../../components/PlayButton";
 
 function Movies() {
   const [filterMovie, setFilterMovie] = useState("");
@@ -25,7 +26,7 @@ function Movies() {
       />
 
       <Title>Movies</Title>
-      <div className="grid grid-cols-6 gap-y-[32px] gap-x-6">
+      <div className="grid grid-cols-5 gap-y-[32px] gap-x-6">
         {moviesData
           .filter((item) => {
             return filterMovie.toLocaleLowerCase() === ""

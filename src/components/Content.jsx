@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useData } from "../store/MainContext";
+import PlayButton from "./PlayButton";
 
 function Content({ data, index }) {
   const { title, year, category, rating, thumbnail, isBookmarked } = data;
 
   const { dispatch } = useData();
 
+  const [play, setPlay] = useState(null);
+
   return (
-    <div className="">
-      <div className="relative cursor-pointer w-fit">
+    <div className="relative">
+      <div
+        className="relative cursor-pointer w-fit"
+        onMouseEnter={() => setPlay(true)}
+        onMouseLeave={() => setPlay(false)}
+      >
         <img
           className="h-[174px] w-[280px]  rounded-[8px] transition  duration-500 cursor-pointer hover:opacity-70 "
           src={thumbnail?.regular.large}
@@ -35,6 +42,15 @@ function Content({ data, index }) {
           />
         </div>
       </div>
+
+      <div
+        className={`absolute  transition-all  top-[30%] left-[25%] rounded-2xl    ${
+          play ? "" : "hidden"
+        }`}
+      >
+        <PlayButton />
+      </div>
+
       <div className="flex flex-col  justify-center ">
         <ul className=" mt-1 list-disc list-inside	items-center 	flex gap-2 text-bodyS font-light opacity-75 leading-6 text-mainWhite">
           <li className="list-none">{year}</li>

@@ -1,16 +1,33 @@
+import { useState } from "react";
+import PlayButton from "../../components/PlayButton";
 import { useData } from "../../store/MainContext";
 
 function TrendingContent({ data }) {
+  const [play, setPlay] = useState(null);
+
   const { dispatch } = useData();
   const { title, year, category, rating, thumbnail, isBookmarked } = data;
 
   return (
-    <div className="relative cursor-pointer  transition duration-700 ">
+    <div
+      className={`relative cursor-pointer  transition duration-700 ${
+        play ? "grayscale-[70%]" : ""
+      }`}
+      onMouseEnter={() => setPlay(true)}
+      onMouseLeave={() => setPlay(false)}
+    >
       <img
         className="rounded-[8px]  "
         src={thumbnail?.trending.large}
         alt={title}
       />
+      <div
+        className={`absolute  transition-all  top-[40%] left-[40%] rounded-2xl    ${
+          play ? "" : "hidden"
+        }`}
+      >
+        <PlayButton />
+      </div>
       <div
         className="absolute top-5 right-5   "
         onClick={() => {
@@ -22,7 +39,7 @@ function TrendingContent({ data }) {
       >
         <div className=" relative cursor-pointer opacity-50  w-[32px] h-[32px] rounded-[32px]  bg-mainGreyishBlue"></div>
         <img
-          className="absolute top-2.5 left-2.5"
+          className="absolute top-2.5 left-2.5 "
           src={`${
             isBookmarked
               ? "/public/assets/imgs/icon-bookmark-full.svg"
