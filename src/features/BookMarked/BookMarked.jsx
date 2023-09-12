@@ -31,6 +31,7 @@ function BookMarked() {
   return (
     <>
       <Input
+        placeHolder={"Search for bookmarked shows"}
         onChange={(e) => {
           setFilterBookMarked(e.target.value);
         }}

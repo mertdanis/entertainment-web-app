@@ -16,6 +16,7 @@ function Home() {
   return (
     <>
       <Input
+        placeHolder={"Search for movies or TV series"}
         onChange={(e) => {
           setFilter(e.target.value);
         }}
@@ -23,7 +24,7 @@ function Home() {
       <Trending />
 
       <Title>Recommended for you</Title>
-      <div className="grid grid-cols-6 gap-y-[32px] gap-x-6">
+      <div className="grid grid-cols-6  gap-y-[32px] gap-x-6">
         {data
           .filter((item) => {
             return filter.toLocaleLowerCase() === ""

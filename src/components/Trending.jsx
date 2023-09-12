@@ -14,7 +14,7 @@ function Trending() {
   return (
     <>
       <Title>Trending</Title>
-      <div className="grid grid-cols-3   gap-6  ">
+      <div className="grid grid-cols-3 gap-6 ">
         {TrendingData.map((content) => {
           return <TrendingContent data={content} key={content.title} />;
         })}

@@ -12,17 +12,24 @@ function Content({ data, index }) {
   return (
     <div className="relative">
       <div
-        className="relative cursor-pointer w-fit"
+        className="cursor-pointer w-fit"
         onMouseEnter={() => setPlay(true)}
         onMouseLeave={() => setPlay(false)}
       >
+        <div
+          className={`absolute z-10	 transition-all  top-[30%] left-[25%] rounded-2xl    ${
+            play ? "" : "hidden"
+          }`}
+        >
+          <PlayButton />
+        </div>
         <img
-          className="h-[174px] w-[280px]  rounded-[8px] transition  duration-500 cursor-pointer hover:opacity-70 "
+          className="h-[174px] w-[280px]  object-cover hover:opacity-50  rounded-[8px] transition  duration-500 cursor-pointer  "
           src={thumbnail?.regular.large}
           alt={title}
         />
         <div
-          className="absolute top-5 right-5   "
+          className="absolute top-5 right-5    "
           onClick={() => {
             dispatch({
               type: "toggleBookMark",
@@ -30,7 +37,7 @@ function Content({ data, index }) {
             });
           }}
         >
-          <div className=" relative cursor-pointer opacity-50  w-[32px] h-[32px] rounded-[32px]  bg-mainGreyishBlue"></div>
+          <div className=" relative cursor-pointer opacity-50  w-[32px] h-[32px] rounded-[32px]  hover:opacity-100 bg-mainGreyishBlue"></div>
           <img
             className="absolute top-2.5 left-2.5"
             src={`${
@@ -41,14 +48,6 @@ function Content({ data, index }) {
             alt="bookmark empty"
           />
         </div>
-      </div>
-
-      <div
-        className={`absolute  transition-all  top-[30%] left-[25%] rounded-2xl    ${
-          play ? "" : "hidden"
-        }`}
-      >
-        <PlayButton />
       </div>
 
       <div className="flex flex-col  justify-center ">

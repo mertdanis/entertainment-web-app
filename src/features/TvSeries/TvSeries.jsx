@@ -20,6 +20,7 @@ function TvSeries() {
   return (
     <>
       <Input
+        placeHolder={"Search for TV series"}
         onChange={(e) => {
           setFilterSeries(e.target.value);
         }}

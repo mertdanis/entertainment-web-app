@@ -5,7 +5,6 @@ import Layout from "./ui/Layout.jsx";
 
 // routes
 
-import Home from "./features/Home/Home.jsx";
 import Movies from "./features/Movies/Movies.jsx";
 import TvSeries from "./features/TvSeries/TvSeries.jsx";
 import BookMarked from "./features/BookMarked/BookMarked.jsx";

@@ -20,13 +20,14 @@ function Movies() {
   return (
     <>
       <Input
+        placeHolder={"Search for movies"}
         onChange={(e) => {
           setFilterMovie(e.target.value);
         }}
       />
 
       <Title>Movies</Title>
-      <div className="grid grid-cols-5 gap-y-[32px] gap-x-6">
+      <div className="grid grid-cols-6 gap-y-[32px] gap-x-6">
         {moviesData
           .filter((item) => {
             return filterMovie.toLocaleLowerCase() === ""

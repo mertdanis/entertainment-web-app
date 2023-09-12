@@ -10,19 +10,17 @@ function TrendingContent({ data }) {
 
   return (
     <div
-      className={`relative cursor-pointer  transition duration-700 ${
-        play ? "grayscale-[70%]" : ""
-      }`}
+      className="relative cursor-pointer  transition duration-700 "
       onMouseEnter={() => setPlay(true)}
       onMouseLeave={() => setPlay(false)}
     >
       <img
-        className="rounded-[8px]  "
+        className={`rounded-t-[8px] object-cover ${play ? "opacity-50" : ""}`}
         src={thumbnail?.trending.large}
         alt={title}
       />
       <div
-        className={`absolute  transition-all  top-[40%] left-[40%] rounded-2xl    ${
+        className={`absolute  transition-all  top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]  rounded-2xl     ${
           play ? "" : "hidden"
         }`}
       >
@@ -48,7 +46,7 @@ function TrendingContent({ data }) {
           alt="bookmark empty"
         />
       </div>
-      <div className="flex flex-col absolute bottom-3 left-7  justify-center my-2">
+      <div className="flex flex-col absolute bottom-3 left-7  justify-center my-2 ">
         <ul className="flex gap-6 text-bodyM font-light opacity-75 text-mainWhite">
           <li>{year}</li>
 

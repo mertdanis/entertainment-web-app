@@ -5,7 +5,7 @@ function Sidebar() {
   const { test } = useData;
 
   return (
-    <nav className="col-span-1 	 min-h-screen w-1/12	  px-[38px] py-[36px] rounded-[20px] flex flex-col gap-6 items-center justify-between bg-mainDarkBlue">
+    <nav className="col-span-1 	 min-h-screen w-[96px]	  px-[38px] py-[36px] rounded-[20px] flex flex-col gap-6 items-center justify-between bg-mainDarkBlue">
       <div className="flex flex-col gap-[2.2rem] justify-center items-center">
         <NavLink to="/">
           <img
