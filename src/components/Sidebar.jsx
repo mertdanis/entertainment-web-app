@@ -5,7 +5,7 @@ function Sidebar() {
   const { test } = useData;
 
   return (
-    <nav className="col-span-1 	 min-h-screen w-[96px]	  px-[38px] py-[36px] rounded-[20px] flex flex-col gap-6 items-center justify-between bg-mainDarkBlue">
+    <nav className="col-span-1 min-h-screen 	  w-[96px]	  px-[38px] py-[36px] rounded-[20px] flex flex-col gap-6 items-center justify-between bg-mainDarkBlue">
       <div className="flex flex-col gap-[2.2rem] justify-center items-center">
         <NavLink to="/">
           <img
@@ -17,7 +17,7 @@ function Sidebar() {
 
         <NavLink to="/">
           <img
-            className=" transition hover:scale-125"
+            className="transition hover:scale-125"
             src="/public/assets/imgs/icon-nav-home.svg"
             alt="home-icon"
           />
@@ -49,7 +49,7 @@ function Sidebar() {
       </div>
 
       <img
-        className="h-12 w-12 rounded-full border-2 transition hover:scale-125"
+        className="min-h-[40px] min-w-[40px] rounded-full border-2 transition hover:scale-125"
         src="/public/assets/imgs/image-avatar.png"
         alt="avatar"
       />

@@ -10,12 +10,14 @@ function TrendingContent({ data }) {
 
   return (
     <div
-      className="relative cursor-pointer  transition duration-700 "
+      className="relative w-fit cursor-pointer  transition duration-700 "
       onMouseEnter={() => setPlay(true)}
       onMouseLeave={() => setPlay(false)}
     >
       <img
-        className={`rounded-t-[8px] object-cover ${play ? "opacity-50" : ""}`}
+        className={`rounded-t-[8px] object-cover w-[470px] h-[230px] ${
+          play ? "opacity-50" : ""
+        }`}
         src={thumbnail?.trending.large}
         alt={title}
       />
@@ -35,9 +37,9 @@ function TrendingContent({ data }) {
           });
         }}
       >
-        <div className=" relative cursor-pointer opacity-50  w-[32px] h-[32px] rounded-[32px]  bg-mainGreyishBlue"></div>
+        <div className=" relative cursor-pointer opacity-50   w-[32px] h-[32px] rounded-[32px]   bg-mainGreyishBlue"></div>
         <img
-          className="absolute top-2.5 left-2.5 "
+          className="absolute top-2.5 left-2.5"
           src={`${
             isBookmarked
               ? "/public/assets/imgs/icon-bookmark-full.svg"
